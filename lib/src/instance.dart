@@ -2,7 +2,7 @@ import 'dart:js' as js;
 
 import 'config.dart';
 
-/// A
+/// An Application Insights connection.
 class AppInsightsInstance {
   Config get config {
     final js.JsObject configHandle = _handle['config'];
@@ -37,5 +37,44 @@ class AppInsightsInstance {
       measurements != null ? new js.JsObject.jsify(measurements) : null,
       duration
     ]);
+  }
+
+  /// Log a user action or other occurrence.
+  /// 
+  /// [name] - A string to identify this event in the portal. Must not be [null].
+  /// 
+  /// [properties] - Additional data used to filter events and metrics in the portal. Defaults to empty.
+  /// 
+  /// [measurements] - Metrics associated with this event, displayed in Metrics Explorer on the portal. Defaults to empty.
+  void trackEvent(String name, {Map<String, String> properties, Map<String, num> measurements}) {
+    if (name == null) throw new ArgumentError.notNull('name');
+
+    _handle.callMethod('trackEvent', [
+      name,
+      properties != null ? new js.JsObject.jsify(properties) : null,
+      measurements != null ? new js.JsObject.jsify(measurements) : null
+    ]);
+  }
+
+  /// Sets the autheticated user id and the account id in this session.
+  /// 
+  /// Note: [authenticatedUserId] and [accountId] should not contain commas, semi-colons, equal signs, spaces, or vertical-bars.
+  /// 
+  /// **Parameters:**
+  /// 
+  /// [authenticatedUserId] - The authenticated user id. A unique and persistent string that represents each authenticated 
+  /// user in the service.
+  /// 
+  /// [accountId] - An optional string to represent the account associated with the authenticated user.
+  void setAuthenticatedUserContext(String authenticatedUserId, [String accountId]) {
+    _handle.callMethod('setAuthenticatedUserContext', [
+      authenticatedUserId,
+      accountId
+    ]);
+  }
+
+  /// Clears the authenticated user id and the account id from the user context.
+  void clearAuthenticatedUserContext() {
+    _handle.callMethod('clearAuthenticatedUserContext');
   }
 }
