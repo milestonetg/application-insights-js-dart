@@ -1,7 +1,7 @@
 name: application_insights_js
 description: "A Dart wrapper for the Microsoft Application Insights JavaScript SDK."
 version: 0.1.0
-homepage: https://github.com/milestonetg/msal-js-dart
+homepage: https://github.com/milestonetg/application-insights-js-dart
 
 authors:
 - Ethan Lafrenais <ethan.lafrenais@milestonetg.com>
