@@ -1,6 +1,7 @@
 import 'dart:js' as js;
 
 import 'config.dart';
+import 'severity_level.dart';
 
 /// An Application Insights connection.
 class AppInsightsInstance {
@@ -53,6 +54,30 @@ class AppInsightsInstance {
       name,
       properties != null ? new js.JsObject.jsify(properties) : null,
       measurements != null ? new js.JsObject.jsify(measurements) : null
+    ]);
+  }
+
+  /// Log an exception or generic error that you have caught.
+  /// 
+  /// [exceptionMessage] - The exception message to log. Must not be [null].
+  /// 
+  /// [handledAt] - Defaults to "unhandled".
+  /// 
+  /// [properties] - Additional data used to filter events and metrics in the portal. Defaults to empty.
+  /// 
+  /// [measurements] - Metrics associated with this event, displayed in Metrics Explorer on the portal. Defaults to empty.
+  /// 
+  /// [severityLevel] - The severity of the exception.
+  void trackException(String exceptionMessage, {String handledAt, Map<String, String> properties, Map<String, num> measurements, 
+    SeverityLevel severityLevel}) {
+    if (exceptionMessage == null) throw new ArgumentError.notNull('exception');
+
+    _handle.callMethod('trackException', [
+      exceptionMessage,
+      handledAt,
+      properties != null ? new js.JsObject.jsify(properties) : null,
+      measurements != null ? new js.JsObject.jsify(measurements) : null,
+      severityLevel?.index
     ]);
   }
 
