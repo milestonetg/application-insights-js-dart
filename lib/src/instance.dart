@@ -2,12 +2,18 @@ import 'dart:js' as js;
 
 import 'config.dart';
 import 'severity_level.dart';
+import 'telemetry_context.dart';
 
 /// An Application Insights connection.
 class AppInsightsInstance {
   Config get config {
     final js.JsObject configHandle = _handle['config'];
     return new Config.fromExistingHandle(configHandle);
+  }
+
+  TelemetryContext get context {
+    final js.JsObject contextHandle = _handle['context'];
+    return new TelemetryContext.fromExistingHandle(contextHandle);
   }
 
   final js.JsObject _handle;
