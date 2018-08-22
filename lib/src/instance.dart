@@ -87,6 +87,23 @@ class AppInsightsInstance {
     ]);
   }
 
+  /// Log a diagnostic message.
+  /// 
+  /// [message] - A message string. Must not be [null].
+  /// 
+  /// [properties] - Additional data used to filter events and metrics in the portal. Defaults to empty.
+  /// 
+  /// [severityLevel] - The severity of the trace.
+  void trackTrace(String message, {Map<String, String> properties, SeverityLevel severityLevel}) {
+    if (message == null) throw new ArgumentError.notNull('message');
+    //AppInsights.prototype.trackTrace = function (message, properties, severityLevel) {
+    _handle.callMethod('trackTrace', [
+      message,
+      properties != null ? new js.JsObject.jsify(properties) : null,
+      severityLevel?.index
+    ]);
+  }
+
   /// Sets the autheticated user id and the account id in this session.
   /// 
   /// Note: [authenticatedUserId] and [accountId] should not contain commas, semi-colons, equal signs, spaces, or vertical-bars.
