@@ -1,7 +1,4 @@
 # Analyzer documentation, see https://www.dartlang.org/guides/language/analysis-options
-analyzer:
-  strong-mode: true
-
 # Lint rules and documentation, see http://dart-lang.github.io/linter/lints
 linter:
   rules:

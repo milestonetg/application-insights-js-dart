@@ -48,7 +48,7 @@ class AppInsightsInstance {
 
   /// Log a user action or other occurrence.
   /// 
-  /// [name] - A string to identify this event in the portal. Must not be [null].
+  /// [name] - A string to identify this event in the portal. Must not be `null`.
   /// 
   /// [properties] - Additional data used to filter events and metrics in the portal. Defaults to empty.
   /// 
@@ -65,7 +65,7 @@ class AppInsightsInstance {
 
   /// Log an exception or generic error that you have caught.
   /// 
-  /// [exceptionMessage] - The exception message to log. Must not be [null].
+  /// [exceptionMessage] - The exception message to log. Must not be `null`.
   /// 
   /// [handledAt] - Defaults to "unhandled".
   /// 
@@ -89,7 +89,7 @@ class AppInsightsInstance {
 
   /// Log a diagnostic message.
   /// 
-  /// [message] - A message string. Must not be [null].
+  /// [message] - A message string. Must not be `null`.
   /// 
   /// [properties] - Additional data used to filter events and metrics in the portal. Defaults to empty.
   /// 
