@@ -6,16 +6,14 @@ A Dart wrapper for the [Microsoft Application Insights JavaScript SDK](https://g
 
 ## Getting Started
 
-### 1. Adding ai.js
-Before this package can be used, ai.js must be referenced along-side your Dart application.
+### 1. Adding applicationinsights-web.js
+Before this package can be used, applicationinsights-web.js must be referenced along-side your Dart application.
 
-Each release of this package comes with the latest compatible ai.js version. We highly recommend using the version bundled with this package (ai.js is not modified in any way. We just bundle the release we are targeting).
+Get `applicationinsights-web.js` using `unpkg`: https://unpkg.com/browse/@microsoft/applicationinsights-web@latest/.
 
 ```html
-<script src="packages/application_insights_js/ai.min.js"></script>
+<script src="applicationinsights-web.min.js"></script>
 ```
-
-Currently, only the minified version of ai.js is bundled.
 
 ### 2. Usage
 

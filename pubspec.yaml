@@ -1,13 +1,19 @@
 name: application_insights_js
 description: "A Dart wrapper for the Microsoft Application Insights JavaScript SDK."
-version: 0.3.0
+version: 0.4.0
 homepage: https://github.com/milestonetg/application-insights-js-dart
+repository: https://github.com/milestonetg/application-insights-js-dart
+issue_tracker: https://github.com/milestonetg/application-insights-js-dart/issues
 
-authors:
-- Ethan Lafrenais <ethan.lafrenais@milestonetg.com>
+environment:
+  sdk: ">=2.6.0 <3.0.0"
 
 # Not ready for publishing yet
 publish_to: none
 
-environment:
-  sdk: ">=1.23.0 <3.0.0"
+dependencies:
+  js: ^0.6.2
+  meta: ^1.2.3
+
+dev_dependencies:
+  pedantic: ^1.9.2

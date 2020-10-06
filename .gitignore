@@ -3,5 +3,6 @@
 
 # Dart Files
 .pub/
+.dart_tool/
 pubspec.lock
 .packages
